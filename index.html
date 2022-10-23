@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson16</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            margin: 0;
+        }
+        .animation_container {
+            width: 50vw;
+            margin: 0 auto 1vmin;
+            height: calc(30vh + 5vw);
+            border: 10px solid red;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            overflow: hidden;
+            background-image: linear-gradient(white, black);
+            z-index: 5;
+           
+        }
+        .test1 {
+            animation-iteration-count: 1;
+        }
+        .test2 {
+            animation-iteration-count: 2;
+        }
+        .test3 {
+            animation-iteration-count: 3;
+        }
+        .test4 {
+            animation-iteration-count: infinite;
+        }
+        .animation_container div {
+            width: 5vw;
+            height: 5vw;
+            border-radius: 50%;
+            color: white;
+            padding: 1vmin;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: calc (.5rem + 5vmin);
+            position: relative;
+            top: 0px;
+            background-color: red;
+            animation-name: iliketomoveit;
+            animation-duration: 1.5s;
+            animation-delay: 2s;
+
+            
+        }
+        p {
+            margin: 0;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            left: -100%;
+            top: -3vw;
+            color: white;
+            z-index: 10;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: calc(1rem + 1vmin);
+            text-shadow: 1px 1px 1px black;
+            animation-name: text;
+            animation-duration: 15s;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+
+        }
+        .animation_container .test5 {
+            animation-duration: 6s, 6s;
+            animation-delay: 2s, 2s;
+            animation-name: move2, rotate;
+            animation-iteration-count: infinite, infinite;
+            animation-timing-function: linear, linear;
+            /* transform-origin: 10px 10px; */
+        }
+        @keyframes move2{
+            0% {
+                top: 0;
+                left: 0;
+            }
+            16.66% {
+                top: calc(50% - 5vw);
+                left: 0;
+            }
+            33.32% {
+                top: calc(50% - 5vw);
+                left: 15%;
+            }   
+            50% {
+                top: calc(100% - 5vw);
+                left: 15%;
+            }
+            66.66% {
+                top: calc(50% - 5vw);
+                left: 15%;
+            }
+            83.32% {
+                top: calc(50% - 5vw);
+                left: 0;
+            }
+            100% {
+                top: 0;
+                left: 0;
+            }
+        }
+        @keyframes rotate {
+            /* можно было реализовать одной анимацией с move2 */
+            0% {
+                transform: rotate(0);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes text {
+            0% {
+               left: -100%;
+            } 
+            50% {
+                left: 0%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        @keyframes iliketomoveit {
+            0% {
+                top: 0px;
+            } 
+            50% {
+                top: calc(100% - 5vw);
+                background-color: #000;
+            }
+            100% {
+                top: 0%;
+                background-color: red;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+   <div class="animation_container">
+    <div class="test1">1</div>
+    <div class="test2">2</div>
+    <div class="test3">3</div>
+    <div class="test4">infinite</div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+   </div> 
+   <div class="animation_container">
+    <div class="test5">move</div> 
+   </div> 
+
+
+</body>
+</html>
